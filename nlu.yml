@@ -1,0 +1,52 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hi
+- intent: restaurant_search
+  examples: |
+    - find me restaurants
+    - [delhi](location)
+    - [italian](cuisine)
+    - [low](price)
+    - find me [italian](cuisine) restaurants in [delhi](location)
+    - [mid](price)
+    - find me [cheap]{"entity": "price", "value": "low"} [mexican](cuisine) restaurants in [mumbai](location)
+    - find me [usual]{"entity": "price", "value": "mid"} [mexican](cuisine) restaurants in [delhi](location)
+    - find me [expensive]{"entity": "price", "value": "high"} [mexican](cuisine) restaurants in [bengaluru](location)
+    - find me [expensive]{"entity": "price", "value": "high"} [south indian](cuisine) restaurants in [bengaluru](location)
+    - find me [cheap]{"entity": "price", "value": "low"} [north indian](cuisine) restaurants
+    - [pune](location)
+    - find me [chinese](cuisine) restaurants
+    - [high](price)
+    - find me [chinese](cuisine) restaurants  in [visakhapatnam](location)
+    - find me restaurants in [varanasi](location)
+    - [north indian](cuisine)
+    - [mid](price)
+- intent: goodbye
+  examples: |
+    - no
+    - thanks,bye
+    - no,thank you. bye
+    - bye
+    - no, thank you. bye
+- intent: affirm
+  examples: |
+    - yes
+- intent: send_email
+  examples: |
+    - [haritha.kolli96@gmail.com](email)
+    - [houseofiravath@gmail.com](email)
+    - [littlecaptures9@gmail.com](email)
+    - [haritha.harika1996@gmail.com](email)
+    - [haritha.kolli96@gmail.com](email)
+    - no.bye
+- synonym: low
+  examples: |
+    - cheap
+- synonym: mid
+  examples: |
+    - usual
+- synonym: high
+  examples: |
+    - expensive

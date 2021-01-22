@@ -1,0 +1,243 @@
+
+version: "2.0"
+stories:
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: sydney
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: sydney
+  - action: utter_ask_price
+  - intent: restaurant_search
+    entities:
+    - price: low
+  - slot_was_set:
+    - price: low
+  - action: action_search_restaurants
+  - slot_was_set:
+    - emailbody: ''
+  - action: utter_goodbye
+  - intent: stop
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - price: low
+  - slot_was_set:
+    - price: low
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: action_search_restaurants
+  - slot_was_set:
+    - emailbody: " Pizzasia in Shop 1 A, 315, Ground Floor, Ocean Complex, P Block, Pocket A, Maharaja Agrasen Marg, Sector 18, Noida has been rated 3.9\n"
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: stop
+
+- story: interactive_story_3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: utter_ask_price
+  - intent: restaurant_search
+    entities:
+    - price: low
+  - slot_was_set:
+    - price: low
+  - action: action_search_restaurants
+  - slot_was_set:
+    - emailbody: ''
+  - action: utter_goodbye
+
+- story: interactive_story_4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: delhi
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_price
+  - intent: restaurant_search
+    entities:
+    - price: mid
+  - slot_was_set:
+    - price: mid
+  - action: action_search_restaurants
+  - slot_was_set:
+    - emailbody: " Pizzasia in Shop 1 A, 315, Ground Floor, Ocean Complex, P Block, Pocket A, Maharaja Agrasen Marg, Sector 18, Noida has been rated 3.9\n"
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - price: high
+    - cuisine: mexican
+    - location: bengaluru
+  - slot_was_set:
+    - cuisine: mexican
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - price: high
+  - action: action_search_restaurants
+  - slot_was_set:
+    - emailbody: " Truffles in 28, 4th B Cross, Koramangala 5th Block, Bangalore has been rated 4.8\n Communiti in 67 & 68, Brigade Solitaire, Opposite Advaith Hyundai, Residency Road, Bangalore has been rated 4.6\n Windmills Craftworks in 331, EPIP Area, Road 5B, Near KTPO, Whitefield, Bangalore has been rated 4.6\n The London Curry House - The Royale Senate Hotel in 19/3, Kumara Krupa Road, Race Course Road, Bangalore has been rated 4.5\n Byg Brewski Brewing Company in Opposite MK Retail, Sarjapur Road, Bangalore has been rated 4.4\n Toit in 298, 100 Feet Road, Namma Metro Pillar 62, Indiranagar, Bangalore has been rated 4.4\n Biergarten in 2, Doddanekkundi, Whitefield Road, Mahadevpura, Whitefield, Bangalore has been rated 4.4\n The Bier Library in 14, Patel Narayana Reddy Layout, 80 Feet Main Road, Koramangala 6th Block, Bangalore has been rated 4.3\n Byg Brewski Brewing Company in 22/123, Byrathi Village, Bidarahalli Hobli, Hennur, Bangalore has been rated 4.3\n Big Pitcher in 4121, LR Arcade, Old Airport Road, Bangalore has been rated 4.3\n"
+  - intent: affirm
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: houseofiravath@gmail.com
+  - slot_was_set:
+    - email: houseofiravath@gmail.com
+  - action: action_send_email
+  - action: utter_sent_email
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: interactive_story_6
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: patna
+  - slot_was_set:
+    - location: patna
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: utter_ask_price
+  - intent: restaurant_search
+    entities:
+    - price: mid
+  - slot_was_set:
+    - price: mid
+  - action: action_search_restaurants
+  - slot_was_set:
+    - emailbody: " Harilal's in West Boring Canal Road, Kidwaipuri, Patna has been rated 4.6\n Bansi Vihar Restaurant in New Market Beside Buddha Park, Fraser Road Area, Patna has been rated 4.5\n Basant Vihar in 1st Floor, Maurya Lok Complex, Fraser Road Area, Patna has been rated 4.5\n Haldiram in Rajeswar Commercial Complex, Main Road, Kankarbagh, Patna has been rated 4.4\n Haldiram in Uno Business Center, Polytechnic More, Patliputra, Patliputra Colony, Patna has been rated 4.3\n Haldiram in Shyam Sundar Complex, Jagdeo Path, Bailey Road, Khajpura, Patna has been rated 4.2\n Banjara in Near Children Park, Boring Road, Sri Krishnapuri has been rated 4.2\n Chatkara Food Court in Near Ashiyana More, Bailey Road, Khajpura, Patna has been rated 4.2\n Mr. & Mrs. Idly - Taste of Chennai in Manprabha Appartment, Dev Lane, East Boring Canal Road, Kidwaipuri, Patna has been rated 4.1\n Shubhraj Fast Food in Ashok Rajpath Road, Patna University Campus, Patna has been rated 4.1\n"
+  - intent: send_email
+    entities:
+    - email: rahman.faiz23@gmail.com
+  - slot_was_set:
+    - email: rahman.faiz23@gmail.com
+  - action: action_send_email
+  - action: utter_sent_email
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_7
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: kolkata
+  - slot_was_set:
+    - location: kolkata
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: north indian
+  - slot_was_set:
+    - cuisine: north indian
+  - action: utter_ask_price
+  - intent: restaurant_search
+    entities:
+    - price: mid
+  - slot_was_set:
+    - price: mid
+  - action: action_search_restaurants
+  - slot_was_set:
+    - emailbody: " Royal Indian Hotel in 147, Rabindra Sarani, Bara Bazar, Kolkata has been rated 4.3\n Hanglaatherium in 188/3/1A, Lake Gardens, Prince Anwar Shah Road, Kolkata has been rated 4.3\n The Great Biryani Co. in MB 482, Majherpara, Bidhan Nagar, Near Bharat Gas Godown Mahisbathan, Sector 5, Salt Lake, Kolkata has been rated 4.1\n Nizam's in 23/24, Hogg Street, New Market Area, Kolkata has been rated 4.1\n Balle Balle Dhaba in DC 27/26, Near City Centre 1, Sector 1, Salt Lake, Kolkata has been rated 4.0\n"
+  - intent: affirm
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: faizrahman@live.com
+  - slot_was_set:
+    - email: faizrahman@live.com
+  - action: action_send_email
+  - action: utter_sent_email
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_8
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: varanasi
+  - slot_was_set:
+    - location: varanasi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: north indian
+  - slot_was_set:
+    - cuisine: north indian
+  - action: utter_ask_price
+  - intent: restaurant_search
+    entities:
+    - price: mid
+  - slot_was_set:
+    - price: mid
+  - action: action_search_restaurants
+  - slot_was_set:
+    - emailbody: " Baati Chokha in S-13/18,Teliabagh, Anand Mandir, Varanasi with average budget for two people Rs.450 has been rated 4.5\n Al-Baike in 2nd Floor,Raja Bazar, Beside ICICI Bank, Nadesar, Varanasi with average budget for two people Rs.400 has been rated 4.3\n Maharaja Veg & Non Veg Food in Pandit Madan Mohan Malviya Road, Lal Bihari Market, BHU, Near Heritage Hospital, Lanka, Varanasi with average budget for two people Rs.500 has been rated 4.1\n Nawabi Zaiqua in S 6/105, Golghar Kachahri, Pandeypur, Varanasi with average budget for two people Rs.400 has been rated 4.1\n Ambrosia Restaurant in SH 74, Rama Complex, Gokul Nagar, DLW Colony, Bhullanpur, Sunderpur, Varanasi with average budget for two people Rs.500 has been rated 3.9\n Shiraaz Biryani in S8/375, Khajuri Gola, Officer&#039;s Colony near Paani Tanki, Nadesar, Varanasi with average budget for two people Rs.400 has been rated 3.9\n Republic Kitchen in Plot G-2, Gaurishankar Apartment, Ravindrapuri Extention, Bhelupur, Varanasi with average budget for two people Rs.500 has been rated 3.9\n KBC- By Raunak's Kitchen in C 27/179, A-K-3-A, Maldhaiya, Sigra, Varanasi with average budget for two people Rs.600 has been rated 3.9\n Mushkan Kalika Family Restaurant in B 30/70, 2, Nagwa Road, Assi, Varanasi with average budget for two people Rs.300 has been rated 3.8\n Biryani Headquarter in Near Hyderabad Gate, Susuwahi, Lanka, Varanasi with average budget for two people Rs.300 has been rated 3.8\n"
+  - intent: affirm
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: haritha.kolli96@gmail.com
+  - slot_was_set:
+    - email: haritha.kolli96@gmail.com
+  - action: action_send_email
+  - action: utter_sent_email
+  - intent: send_email
+  - action: utter_goodbye
